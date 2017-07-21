@@ -1,0 +1,24 @@
+<h2>Lista del Historial De Metodos Realizados</h2>
+<hr>
+<button class="btn btn-outline-success"
+[routerLink]="['/dashboard/usuarios']">Regresar</button>
+<table class="table table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Accion</th>
+      <th>Fecha</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let historial of historiales">
+      <th scope="row">{{historial.idHistorial}}</th>
+      <td>{{historial.accion}}</td>
+      <td>{{historial.fecha}}</td>
+      <td class="btn-group" role="group">
+        <button type="button" (click)="borrarHistorial(historial.idHistorial)" class="btn btn-warning btn-sm">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

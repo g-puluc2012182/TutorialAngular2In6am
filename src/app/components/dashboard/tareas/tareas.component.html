@@ -1,0 +1,35 @@
+<h2>Lista de Tareas</h2>
+<hr>
+<button class="btn btn-outline-primary"
+[routerLink]="['/dashboard/tarea', 'nuevo']">Nueva Tarea</button>
+<table class="table table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <th>FechaInicio</th>
+      <th>FechaFinal</th>
+      <th>Estado</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tarea of tareas">
+      <th scope="row">{{tarea.idTarea}}</th>
+      <td>{{tarea.Titulo}}</td>
+      <td>{{tarea.Descripcion}}</td>
+      <td>{{tarea.FechaInicio}}</td>
+      <td>{{tarea.FechaFinal}}</td>
+      <td>{{tarea.Estado}}</td>
+      <td class="btn-group" role="group">
+        <button type="button" (click)="borrarTarea(tarea.idTarea)" class="btn btn-warning btn-sm">Eliminar</button>
+        <button
+          [routerLink]="['/dashboard/tarea', tarea.idTarea]"
+          class="btn btn-success">
+          Editar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
